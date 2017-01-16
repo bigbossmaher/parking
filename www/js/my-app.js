@@ -54,13 +54,13 @@ function createContentPage() {
   $$('.open-left-panel').on('click', function (e) {
         // 'left' position to open Left panel
         myApp.openPanel('left');
-       map.setClickable( false );
+       //map.setClickable( false );
     });
  
     $$('.open-right-panel').on('click', function (e) {
         // 'right' position to open Right panel
         myApp.openPanel('right');
-        map.setClickable( false );
+        //map.setClickable( false );
     });
 $$('.panel-right').on('panel:closed', function () {
     myApp.alert('Left panel is closing!');
@@ -69,11 +69,11 @@ $$('.panel-right').on('panel:closed', function () {
 
 //autocomplete part
 $$('#myplace').on('focusin', function (e) {
-    map.setClickable( false );
+    //map.setClickable( false );
     $$('#myplace').val('');
     });
 $$('#myplace').on('blur', function (e) {
-    map.setClickable( true );
+    //map.setClickable( true );
     });
 
 
