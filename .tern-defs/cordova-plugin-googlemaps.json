@@ -1,0 +1,179 @@
+{
+    "!name": "cordova-plugin-googlemaps",
+    "!define": {
+        "!modules": {
+            "cordova-plugin-googlemaps": {
+                "event": {
+                    "MAP_CLICK": "string",
+                    "MAP_LONG_CLICK": "string",
+                    "MY_LOCATION_CHANGE": "string",
+                    "MY_LOCATION_BUTTON_CLICK": "string",
+                    "INDOOR_BUILDING_FOCUSED": "string",
+                    "INDOOR_LEVEL_ACTIVATED": "string",
+                    "CAMERA_CHANGE": "string",
+                    "CAMERA_IDLE": "string",
+                    "MAP_READY": "string",
+                    "MAP_LOADED": "string",
+                    "MAP_WILL_MOVE": "string",
+                    "MAP_CLOSE": "string",
+                    "MARKER_CLICK": "string",
+                    "OVERLAY_CLICK": "string",
+                    "INFO_CLICK": "string",
+                    "MARKER_DRAG": "string",
+                    "MARKER_DRAG_START": "string",
+                    "MARKER_DRAG_END": "string"
+                },
+                "Animation": {
+                    "BOUNCE": "string",
+                    "DROP": "string"
+                },
+                "BaseClass": "fn() -> !this",
+                "Map": {
+                    "type": "string"
+                },
+                "LatLng": {
+                    "!type": "fn(latitude: number, longitude: number)",
+                    "lat": "number",
+                    "lng": "number",
+                    "equals": "fn(other: ?) -> bool",
+                    "toString": "fn() -> string",
+                    "toUrlValue": "fn(precision: number) -> string"
+                },
+                "LatLngBounds": {
+                    "prototype": {
+                        "toString": "fn() -> string",
+                        "toUrlValue": "fn(precision: ?) -> string",
+                        "extend": "fn(latLng: ?)",
+                        "getCenter": "fn() -> +!modules.cordova-plugin-googlemaps.LatLng",
+                        "contains": "fn(latLng: ?) -> bool"
+                    },
+                    "!type": "fn()"
+                },
+                "Marker": {
+                    "prototype": {
+                        "empty": "fn()",
+                        "deleteFromObject": "fn(object: ?|[?|?], type: string) -> !0",
+                        "get": "fn(key: string) -> ?|[?|?]",
+                        "set": "fn(key: ?|[?|?], value: ?|[?|?])",
+                        "trigger": "fn(eventName: ?)",
+                        "on": "fn(eventName: string, callback: fn(oldValue: ?, newValue: ?))",
+                        "off": "fn(eventName: string, callback: ?)",
+                        "one": "fn(eventName: ?, callback: ?)",
+                        "errorHandler": "fn(msg: string) -> bool",
+                        "isVisible": "fn() -> ?|[?|?]",
+                        "getPosition": "fn(callback: ?)",
+                        "getId": "fn() -> !this.id",
+                        "getMap": "fn() -> !this.map",
+                        "getHashCode": "fn() -> !this.hashCode",
+                        "setAnimation": "fn(animation: ?, callback: ?)",
+                        "remove": "fn(callback: ?)",
+                        "setDisableAutoPan": "fn(disableAutoPan: bool)",
+                        "getParams": "fn() -> ?|[?|?]",
+                        "setOpacity": "fn(opacity: ?) -> bool",
+                        "setZIndex": "fn(zIndex: ?) -> bool",
+                        "getOpacity": "fn() -> ?|[?|?]",
+                        "setIconAnchor": "fn(anchorX: ?, anchorY: ?)",
+                        "setInfoWindowAnchor": "fn(anchorX: ?, anchorY: ?)",
+                        "setDraggable": "fn(draggable: bool)",
+                        "isDraggable": "fn() -> ?|[?|?]",
+                        "setFlat": "fn(flat: bool)",
+                        "setIcon": "fn(url: [number]|string)",
+                        "setTitle": "fn(title: ?) -> bool",
+                        "setVisible": "fn(visible: bool)",
+                        "getTitle": "fn() -> ?|[?|?]",
+                        "setSnippet": "fn(snippet: ?)",
+                        "getSnippet": "fn() -> ?|[?|?]",
+                        "setRotation": "fn(rotation: ?) -> bool",
+                        "getRotation": "fn() -> ?|[?|?]",
+                        "showInfoWindow": "fn()",
+                        "hideInfoWindow": "fn()",
+                        "isInfoWindowShown": "fn(callback: ?)",
+                        "setPosition": "fn(position: ?) -> bool",
+                        "addEventListener": "!modules.cordova-plugin-googlemaps.Marker.prototype.on",
+                        "removeEventListener": "!modules.cordova-plugin-googlemaps.Marker.prototype.off",
+                        "addEventListenerOnce": "!modules.cordova-plugin-googlemaps.Marker.prototype.one"
+                    },
+                    "!type": "fn(map: !modules.cordova-plugin-googlemaps.Map, id: ?, markerOptions: !modules.cordova-plugin-googlemaps.Marker.!2)"
+                },
+                "MapTypeId": {
+                    "NORMAL": "string",
+                    "ROADMAP": "string",
+                    "SATELLITE": "string",
+                    "HYBRID": "string",
+                    "TERRAIN": "string",
+                    "NONE": "string"
+                },
+                "external": {
+                    "launchNavigation": "fn(params: !modules.cordova-plugin-googlemaps.external.launchNavigation.!0)"
+                },
+                "Geocoder": {
+                    "geocode": "fn(geocoderRequest: ?, callback: ?)"
+                },
+                "geometry": {
+                    "encoding": {
+                        "decodePath": "fn(encoded: ?, precision: number) -> [?]",
+                        "encodePath": "fn(points: ?) -> string"
+                    }
+                }
+            }
+        },
+        "!modules.cordova-plugin-googlemaps.BaseClass.!ret": {
+            "_overlays": "[?|?]",
+            "id": "string",
+            "type": "string",
+            "map": "!modules.cordova-plugin-googlemaps.Map",
+            "empty": "!modules.cordova-plugin-googlemaps.Marker.prototype.empty",
+            "deleteFromObject": "!modules.cordova-plugin-googlemaps.Marker.prototype.deleteFromObject",
+            "get": "!modules.cordova-plugin-googlemaps.Marker.prototype.get",
+            "set": "!modules.cordova-plugin-googlemaps.Marker.prototype.set",
+            "trigger": "!modules.cordova-plugin-googlemaps.Marker.prototype.trigger",
+            "on": "!modules.cordova-plugin-googlemaps.Marker.prototype.on",
+            "addEventListener": "!modules.cordova-plugin-googlemaps.Marker.prototype.on",
+            "off": "!modules.cordova-plugin-googlemaps.Marker.prototype.off",
+            "removeEventListener": "!modules.cordova-plugin-googlemaps.Marker.prototype.off",
+            "one": "!modules.cordova-plugin-googlemaps.Marker.prototype.one",
+            "addEventListenerOnce": "!modules.cordova-plugin-googlemaps.Marker.prototype.one",
+            "errorHandler": "!modules.cordova-plugin-googlemaps.Marker.prototype.errorHandler"
+        },
+        "!modules.cordova-plugin-googlemaps.LatLngBounds.prototype.extend.!0": "+!modules.cordova-plugin-googlemaps.LatLng",
+        "!modules.cordova-plugin-googlemaps.Marker.prototype.on.!1": "fn(oldValue: ?, newValue: ?)",
+        "!modules.cordova-plugin-googlemaps.Marker.!2": {
+            "position": {
+                "lat": "number",
+                "lng": "number"
+            },
+            "anchor": "[number]",
+            "draggable": "bool",
+            "title": "string",
+            "visible": "bool",
+            "flat": "bool",
+            "rotation": "number",
+            "opacity": "number",
+            "disableAutoPan": "bool",
+            "styles": {}
+        },
+        "!modules.cordova-plugin-googlemaps.external.launchNavigation.!0": {},
+        "!modules.cordova-plugin-googlemaps.geometry.encoding.decodePath.!ret": "[?]",
+        "!modules.cordova-plugin-googlemaps.BaseClass.!ret._overlays.<i>": {
+            "type": "string",
+            "map": "!modules.cordova-plugin-googlemaps.Map",
+            "empty": "!modules.cordova-plugin-googlemaps.Marker.prototype.empty",
+            "deleteFromObject": "!modules.cordova-plugin-googlemaps.Marker.prototype.deleteFromObject",
+            "get": "!modules.cordova-plugin-googlemaps.Marker.prototype.get",
+            "set": "!modules.cordova-plugin-googlemaps.Marker.prototype.set",
+            "trigger": "!modules.cordova-plugin-googlemaps.Marker.prototype.trigger",
+            "on": "!modules.cordova-plugin-googlemaps.Marker.prototype.on",
+            "addEventListener": "!modules.cordova-plugin-googlemaps.Marker.prototype.on",
+            "off": "!modules.cordova-plugin-googlemaps.Marker.prototype.off",
+            "removeEventListener": "!modules.cordova-plugin-googlemaps.Marker.prototype.off",
+            "one": "!modules.cordova-plugin-googlemaps.Marker.prototype.one",
+            "addEventListenerOnce": "!modules.cordova-plugin-googlemaps.Marker.prototype.one",
+            "errorHandler": "!modules.cordova-plugin-googlemaps.Marker.prototype.errorHandler"
+        }
+    },
+    "!plugin-version": "1.4.0",
+    "time": "number",
+    "dlng": "number",
+    "dlat": "number",
+    "cordova-plugin-googlemaps": "!modules.cordova-plugin-googlemaps"
+}

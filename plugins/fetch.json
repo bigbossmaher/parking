@@ -1,0 +1,52 @@
+{
+    "cordova-plugin-device": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Sammoudi\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-device"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-splashscreen": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Sammoudi\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-splashscreen"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-statusbar": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Sammoudi\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-statusbar"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-geolocation": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Sammoudi\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-geolocation"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-compat": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Sammoudi\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-compat"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-googlemaps": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Sammoudi\\Desktop\\cordova-plugin-googlemaps-master"
+        },
+        "is_top_level": true,
+        "variables": {
+            "API_KEY_FOR_ANDROID": "AIzaSyAUKl6LZ6sCoxUwK0pqd_5kZ_GDwTRaSM8"
+        }
+    }
+}
