@@ -21,6 +21,9 @@
         },
         "cordova-plugin-googlemaps": {
             "PACKAGE_NAME": "HelloCordova"
+        },
+        "com.lampa.startapp": {
+            "PACKAGE_NAME": "HelloCordova"
         }
     },
     "dependent_plugins": {

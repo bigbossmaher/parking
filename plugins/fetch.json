@@ -48,5 +48,13 @@
         "variables": {
             "API_KEY_FOR_ANDROID": "AIzaSyAUKl6LZ6sCoxUwK0pqd_5kZ_GDwTRaSM8"
         }
+    },
+    "com.lampa.startapp": {
+        "source": {
+            "type": "registry",
+            "id": "com.lampa.startapp"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "6d379d7b-8666-46b9-a3ac-511347b05b1d",
-      "lastModifiedDate": 1482586296295,
+      "lastModifiedDate": 1484291812699,
       "creationDate": 1482244521270
     },
     "XDK-app-designer": "true",
@@ -149,6 +149,25 @@
           ]
         },
         "description": "Google Maps native SDK for Android and iOS",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
+      },
+      {
+        "id": "com.lampa.startapp",
+        "name": "startApp",
+        "version": "0.1.4",
+        "originType": "cordova.io",
+        "origin": "com.lampa.startapp",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/com.lampa.startapp",
+        "selectedState": "Included",
+        "checksum": "3159af5e",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {},
+        "description": "Phonegap plugin for check or launch other application in android device.",
         "data": {},
         "dependedBy": [],
         "custom": "true"

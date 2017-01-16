@@ -1,5 +1,38 @@
 {
   "project": {
-    "projectSettingsVersion": "3.0.0"
+    "projectSettingsVersion": "3.0.0",
+    "currentBuildConfiguration": "Android",
+    "projectFiles": {},
+    "projectDirectories": {}
+  },
+  "editorTab": {
+    "currentEditorMode": 0
+  },
+  "build-tab": {
+    "selectedTargets": [
+      "CORDOVA_ANDROID"
+    ]
+  },
+  "simulator": {
+    "cordova-simulate": {
+      "tinyhippos-geosettings": {
+        "id": "tinyhippos-geosettings",
+        "key": "geosettings",
+        "value": "{\"position\":{\"latitude\":43.46518699999994,\"longitude\":-80.52237200000009,\"altitude\":100,\"accuracy\":150,\"altitudeAccuracy\":80,\"heading\":0,\"speed\":0,\"timeStamp\":\"new Date(1484297121554)\"},\"delay\":\"0\",\"timeout\":false}",
+        "prefix": "tinyhippos-"
+      },
+      "tinyhippos-saved-sims": {
+        "id": "tinyhippos-saved-sims",
+        "key": "saved-sims",
+        "value": "[{\"service\":\"GoogleMaps\",\"action\":\"exec\",\"args\":[\"Marker.createMarker\",{\"title\":\"Parking Sidi Bou Said\",\"position\":{\"lat\":36.8736452,\"lng\":10.339614900000015},\"icon\":\"www/icons/parking.png\",\"styles\":{\"text-align\":\"center\",\"font-style\":\"italic\",\"font-weight\":\"bold\",\"color\":[255,0,0,255]},\"anchor\":[0.5,0.5],\"draggable\":false,\"visible\":true,\"flat\":false,\"rotation\":0,\"opacity\":1,\"disableAutoPan\":false,\"params\":{}}],\"value\":\"\",\"success\":true},{\"service\":\"GoogleMaps\",\"action\":\"getMap\",\"args\":[{\"backgroundColor\":[255,255,255,255],\"mapType\":\"MAP_TYPE_NORMAL\",\"controls\":{\"compass\":true,\"myLocationButton\":true,\"indoorPicker\":true,\"zoom\":true},\"gestures\":{\"scroll\":true,\"tilt\":true,\"rotate\":true,\"zoom\":true}},{\"left\":0,\"top\":72.078125,\"width\":521.09375,\"height\":892},[{\"id\":\"pgm14127685195260\",\"size\":{\"left\":0,\"top\":72.078125,\"width\":521.09375,\"height\":39}}]],\"value\":\"\",\"success\":true},{\"service\":\"GoogleMaps\",\"action\":\"isAvailable\",\"args\":[\"\"],\"value\":\"\",\"success\":true}]",
+        "prefix": "tinyhippos-"
+      },
+      "tinyhippos-geo-map-zoom-key": {
+        "id": "tinyhippos-geo-map-zoom-key",
+        "key": "geo-map-zoom-key",
+        "value": 14,
+        "prefix": "tinyhippos-"
+      }
+    }
   }
 }

@@ -21,6 +21,9 @@
         },
         "cordova-plugin-googlemaps": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "com.lampa.startapp": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
         }
     },
     "dependent_plugins": {

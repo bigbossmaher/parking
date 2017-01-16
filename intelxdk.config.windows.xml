@@ -16,6 +16,7 @@
 <intelxdk:plugin intelxdk:name="Geolocation" intelxdk:value="cordova-plugin-geolocation" intelxdk:version="2.2.0" intelxdk:checksum="ec466374" intelxdk:type="file"/>
 <intelxdk:plugin intelxdk:name="phonegap-googlemaps-plugin" intelxdk:value="cordova-plugin-googlemaps" intelxdk:version="1.4.0" intelxdk:checksum="ff3b43a" intelxdk:type="file">
 <intelxdk:param intelxdk:name="API_KEY_FOR_ANDROID" intelxdk:value="AIzaSyAUKl6LZ6sCoxUwK0pqd_5kZ_GDwTRaSM8"/></intelxdk:plugin>
+<intelxdk:plugin intelxdk:name="startApp" intelxdk:value="com.lampa.startapp" intelxdk:version="0.1.4" intelxdk:checksum="3159af5e" intelxdk:type="file"/>
 <preference name="windows-publisher-display-name"/>
 <preference name="windows-publisher-id"/>
 <preference name="windows-target-version" value="10.0"/>

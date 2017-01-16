@@ -3,77 +3,26 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Blank App Designer Cordova Web App Project Template</title>
+        <title>Parking Tunisie APP</title>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0 minimal-ui">
-        <!-- origin <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">-->
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
-
-        <style>
-            /* following three (cascaded) are equivalent to above three meta viewport statements */
-            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
-            /* see http://dev.w3.org/csswg/css-device-adapt/ */
-                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
-                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
-                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
-        </style>
-
-        
-        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
-        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
-        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
-
-        <!-- Recommended location for your JavaScript libraries -->
-        <!-- These library references (below) are just examples to give you the general idea... -->
-        <!-- <script src="lib/mc/hammer.js"></script> -->
-        <!-- <script src="lib/ft/fastclick.js"></script> -->
-
-        <!--
-  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
-  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
-  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
-  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
--->     
         <script src="cordova.js" id="xdkJScordova_"></script>
         <link rel="stylesheet" href="css/app.css">
         <link rel="stylesheet" href="css/framework7.ios.min.css">
         <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
-        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <script src="js/app.js"></script>
-        <!-- for your event code, see README and file comments for details -->
         <script src="js/init-app.js"></script>
-        <!-- for your init code, see README and file comments for details -->
         <script src="xdk/init-dev.js"></script>
-        <!-- normalizes device and document ready events, see file for details -->
         <script type="text/javascript">
                     
 var map;
 document.addEventListener("deviceready", function() {
-  var div = document.getElementById("map_canvas");
-
-  // Initialize the map view
-    const GORYOKAKU_JAPAN = new plugin.google.maps.LatLng(41.796875,140.757007);
-  map = plugin.google.maps.Map.getMap(div, {
-        'backgroundColor': 'white',
-        'mapType': plugin.google.maps.MapTypeId.ROADMAP,
-        'controls': {
-            'compass': true,
-            'myLocationButton': true,
-            'indoorPicker': true,
-            'zoom': true
-        },
-        'gestures': {
-            'scroll': true,
-            'tilt': true,
-            'rotate': true,
-            'zoom': true
-        }
-    });
-
-  // Wait until the map is ready status.
+ autocompleteComp();
+initializeMap();
   map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
 }, false);
 
@@ -219,6 +168,49 @@ function addMarkers(ParkingData, callback) {
   });
 }
 }
+function autocompleteComp() {
+    var optionsT = {
+        componentRestrictions: {country: "tn"}
+    };    
+  $$('body').on('touchstart','.pac-container', function(e){e.stopImmediatePropagation();})    
+  var acInputs = document.getElementById("myplace");
+  var autocomplete = new google.maps.places.Autocomplete(acInputs, optionsT);
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      var place = autocomplete.getPlace();
+      map.animateCamera({
+  'target': new plugin.google.maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng()),
+  'tilt': 60,
+  'zoom': 15,
+  'bearing': 140
+});
+  });
+   
+}
+function initializeMap() {
+    var div = document.getElementById("map_canvas");
+  map = plugin.google.maps.Map.getMap(div, {
+        'backgroundColor': 'white',
+        'mapType': plugin.google.maps.MapTypeId.ROADMAP,
+        'controls': {
+            'compass': true,
+            'myLocationButton': true,
+            'indoorPicker': true,
+            'zoom': true
+        },
+        'gestures': {
+            'scroll': true,
+            'tilt': true,
+            'rotate': true,
+            'zoom': true
+        },
+  'camera': {
+    'latLng': new plugin.google.maps.LatLng(35.885604, 10.387723),
+    'tilt': 30,
+    'zoom': 7,
+    'bearing': 0
+  }
+    });
+}
         </script>
 
     </head>
@@ -230,18 +222,18 @@ function addMarkers(ParkingData, callback) {
     <!-- Left panel with reveal effect-->
     <div class="panel panel-left panel-cover">
         <div class="content-block">
-            <p><i class="fa fa-info-circle" aria-hidden="true" ></i><a class="close-panel" href="les-villes.html">  Qui sommes nous </a></p>
-            <p><i class="fa fa-chrome" aria-hidden="true"></i><a href="#" class="open-login-screen">  Notre siteweb</a></p>
-            <p><i class="fa fa-facebook-square" aria-hidden="true"></i>  Page Facebook</p>
+            <p><i class="fa fa-info-circle" aria-hidden="true" ></i><!--<a class="close-panel" href="les-villes.html">-->  Qui sommes nous</p>
+            <p id="notre_siteweb"><a href="#"  class="fa fa-chrome" aria-hidden="true">  Notre siteweb</a></p>
+            <p ><a id="facook_page" href="#"  class="fa fa-facebook-square" aria-hidden="true">  Page Facebook</a></p>
             <p><i class="fa fa-phone-square" aria-hidden="true"></i>  Contact</p>
         </div>
     </div>
     <!-- Right panel with cover effect-->
     <div class="panel panel-right panel-cover">
         <div class="content-block">
-            <p><i class="fa fa-globe" ></i><a class="close-panel" href="les-villes.html">  Liste de villes</a></p>
-            <p><i class="fa fa-thumb-tack" aria-hidden="true"></i><a href="#" class="open-login-screen">  Marquer ma voiture</a></p>
-            <p><i class="fa fa-location-arrow" aria-hidden="true"></i>  Trouver ma voiture</p>
+            <p><i class="fa fa-globe" ></i>  Liste de villes</p>
+            <p><a href="#" class="fa fa-thumb-tack save-storage-data" aria-hidden="true">  Marquer ma voiture</a></p>
+            <p><a href="#" class="fa fa-location-arrow get-storage-data" aria-hidden="true">  Trouver ma voiture</a></p>
             <p><i class="fa fa-star" aria-hidden="true"></i>  Evaluer nous</p>
             <p><i class="fa fa-cogs" aria-hidden="true"></i>  Parametres</p>
         </div>
@@ -255,10 +247,11 @@ function addMarkers(ParkingData, callback) {
                 <div class="navbar-inner">
                     <div class="left">
                         <!-- Right link contains only icon - additional "icon-only" class-->
-                        <a href="#" data-panel="left" class="link icon-only open-left-panel"> <i class="icon icon-bars"></i></a>
+                        <a href="#" class="link icon-only open-panel open-left-panel"> <i class="icon icon-bars"></i></a>
                     </div>
-                <div class="center">Parking Tunisie</div>
-				<div class="right">
+                    <!-- We have home navbar without left link-->
+                    <div class="center sliding">Parking Tunisie</div>
+                    <div class="right">
                         <!-- Right link contains only icon - additional "icon-only" class-->
                         <a href="#" class="link icon-only open-panel open-right-panel"> <i class="icon icon-bars"></i></a>
                     </div>
@@ -270,14 +263,21 @@ function addMarkers(ParkingData, callback) {
                 <div data-page="index" class="page">
                     <!-- Scrollable page content-->
                     <div class="page-content">
-                        
-                            <div style="  width: 100%;height: 100%;margin: 0;padding: 0;left: 0;top: 0;" id="map_canvas"><div class="item-content ad-address-holder">
-		<div class="item-inner">
-			<div class="item-input">
-				<input class="address-text" id="address-text" placeholder="Enter a location" type="text">
-			</div>
-		</div>
-	</div></div>
+                        <div id="listblokautocomplete" class="list-block">
+  <ul>
+    <li>
+      <div class="item-content">
+        <div class="item-inner">
+          <div class="item-input">
+            <input id="myplace" type="text" placeholder="garer prer de">
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>       
+                    <div style="  width: 100%;height:93% ;margin: 0;padding: 0;left: 0;top: 0;" id="map_canvas"></div>
+                            
 
                     </div>
                 </div>
@@ -291,21 +291,7 @@ function addMarkers(ParkingData, callback) {
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
-        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUKl6LZ6sCoxUwK0pqd_5kZ_GDwTRaSM8&callback=initMap&libraries=places" type="text/javascript"></script>
-        <script>window.initMap = function() {
-  var acInputs = document.getElementById("address-text");
-  var autocomplete = new google.maps.places.Autocomplete(acInputs);
-  google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      var place = places.getPlace();
-                var address = place.formatted_address;
-                var latitude = place.geometry.location.A;
-                var longitude = place.geometry.location.F;
-                var mesg = "Address: " + address;
-                mesg += "\nLatitude: " + latitude;
-                mesg += "\nLongitude: " + longitude;
-                alert(mesg);
-  });
-}</script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUKl6LZ6sCoxUwK0pqd_5kZ_GDwTRaSM8&libraries=places" type="text/javascript"></script>
 </body>
 
 </html>

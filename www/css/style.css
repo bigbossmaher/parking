@@ -1,6 +1,26 @@
-
+@-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          
+@viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+@-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   
+@viewport { user-zoom: fixed ; min-zoom: 100% ; }
+            
 * {
     -webkit-user-select: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -ms-touch-action: none;
+}
+/*pout autocomplete fonctione bien*/
+.pac-container {
+  z-index:20000;
+}
+#myplace{
+    width: 50%;
+    margin-left: 25%;
+
+}
+#listblokautocomplete{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.panel{
+    z-index:19999;
 }
