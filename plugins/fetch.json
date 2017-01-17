@@ -41,18 +41,18 @@
     },
     "cordova-plugin-googlemaps": {
         "source": {
-            "type": "local",
-            "path": "C:\\Users\\Sammoudi\\Desktop\\cordova-plugin-googlemaps-master"
+            "type": "git",
+            "url": "https://github.com/mapsplugin/cordova-plugin-googlemaps",
+            "subdir": ".",
+            "ref": "multiple_maps"
         },
         "is_top_level": true,
-        "variables": {
-            "API_KEY_FOR_ANDROID": "AIzaSyAUKl6LZ6sCoxUwK0pqd_5kZ_GDwTRaSM8"
-        }
+        "variables": {}
     },
     "com.lampa.startapp": {
         "source": {
             "type": "registry",
-            "id": "com.lampa.startapp"
+            "id": "com.lampa.startapp@0.1.4"
         },
         "is_top_level": true,
         "variables": {}

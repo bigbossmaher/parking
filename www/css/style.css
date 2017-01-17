@@ -12,6 +12,9 @@
 .pac-container {
   z-index:20000;
 }
+#map_canvas{
+    z-index:-1;
+}
 #myplace{
     width: 50%;
     margin-left: 25%;

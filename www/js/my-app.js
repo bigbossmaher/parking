@@ -60,17 +60,17 @@ function createContentPage() {
     $$('.open-right-panel').on('click', function (e) {
         // 'right' position to open Right panel
         myApp.openPanel('right');
-        
+       
     });
 
 
 //autocomplete part
 $$('#myplace').on('focusin', function (e) {
-    
+    map.setClickable( false );
     $$('#myplace').val('');
     });
 $$('#myplace').on('blur', function (e) {
-    
+    map.setClickable( true );
     });
 
 
@@ -121,7 +121,7 @@ $$('.get-storage-data').on('click', function() {
   });
   }  
   else {
-    alert('Vous devez marquer votre voiture');
+    myApp.alert('Vous devez marquer votre voiture');
   }
 });
 
@@ -143,8 +143,19 @@ $$('#notre_siteweb').on('click', function (e) {
     });
 
 //panel closed
+$$('.panel-right').on('closed', function () {
+  
+});
+$$('.panel-left').on('closed', function () {
 
+});
 
 //les villes go
+$$('#tunis-go').on('click', function (e) {
+
+    });
+$$('#les-villes').on('click', function (e) {
+        
+    });
 
 

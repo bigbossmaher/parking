@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "6d379d7b-8666-46b9-a3ac-511347b05b1d",
-      "lastModifiedDate": 1484291812699,
+      "lastModifiedDate": 1484682636813,
       "creationDate": 1482244521270
     },
     "XDK-app-designer": "true",
@@ -126,17 +126,17 @@
       },
       {
         "id": "cordova-plugin-googlemaps",
-        "name": "phonegap-googlemaps-plugin",
-        "version": "1.4.0",
-        "originType": "local",
-        "origin": "/C/Users/Sammoudi/Desktop/cordova-plugin-googlemaps-master",
-        "gitref": "",
+        "name": "cordova-plugin-googlemaps",
+        "version": "2.0.0-beta",
+        "originType": "repo",
+        "origin": "https://github.com/mapsplugin/cordova-plugin-googlemaps",
+        "gitref": "multiple_maps",
         "paramvals": {
           "API_KEY_FOR_ANDROID": "AIzaSyAUKl6LZ6sCoxUwK0pqd_5kZ_GDwTRaSM8"
         },
         "sourceLocation": "plugins/cordova-plugin-googlemaps",
         "selectedState": "Included",
-        "checksum": "ff3b43a",
+        "checksum": "288e0ecb",
         "dependsOn": [],
         "topLevel": true,
         "permissions": {
@@ -151,7 +151,9 @@
         "description": "Google Maps native SDK for Android and iOS",
         "data": {},
         "dependedBy": [],
-        "custom": "true"
+        "custom": "true",
+        "subdir": ".",
+        "author": "Masashi Katsumata"
       },
       {
         "id": "com.lampa.startapp",
