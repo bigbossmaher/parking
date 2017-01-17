@@ -54,26 +54,23 @@ function createContentPage() {
   $$('.open-left-panel').on('click', function (e) {
         // 'left' position to open Left panel
         myApp.openPanel('left');
-       //map.setClickable( false );
+       
     });
  
     $$('.open-right-panel').on('click', function (e) {
         // 'right' position to open Right panel
         myApp.openPanel('right');
-        //map.setClickable( false );
+        
     });
-$$('.panel-right').on('panel:closed', function () {
-    myApp.alert('Left panel is closing!');
-});
 
 
 //autocomplete part
 $$('#myplace').on('focusin', function (e) {
-    //map.setClickable( false );
+    
     $$('#myplace').val('');
     });
 $$('#myplace').on('blur', function (e) {
-    //map.setClickable( true );
+    
     });
 
 
@@ -85,16 +82,21 @@ $$('.save-storage-data').on('click', function() {
      'lng': location.latLng.lng    
         
   });
+  map.clear();
+  showMapParkingData();          
   map.addMarker({
     'position': location.latLng,
-    'title': "Votre Voiture est ici"
+    'title': "Votre Voiture est ici",
+      'icon' : 'www/icons/car.png',
   }, function(marker) {
     marker.showInfoWindow();
   });
    myApp.addNotification({
         title: 'Parking Tunisie',
         message: 'La localisation de votre voiture est bien enregistré.'
-    });       
+    }); 
+          map.setCenter(location.latLng);
+          map.setZoom(18);
 };
 
 var onError = function(msg) {
@@ -102,15 +104,25 @@ var onError = function(msg) {
 };
 map.getMyLocation(onSuccess, onError);   
 });
+//trouver ma voiture
 $$('.get-storage-data').on('click', function() {
   var storedData = myApp.formGetData('localisation_du_voiture');
   if(storedData) {
-    myApp.alert(JSON.stringify(storedData));
-  }
+    map.setCenter(new plugin.google.maps.LatLng(JSON.stringify(storedData.lat),JSON.stringify(storedData.lng)));
+    map.setZoom(18);
+        map.clear();
+  showMapParkingData();
+        map.addMarker({
+    'position': new plugin.google.maps.LatLng(JSON.stringify(storedData.lat),JSON.stringify(storedData.lng)),
+    'title': "Votre Voiture est ici",
+      'icon' : 'www/icons/car.png',
+  }, function(marker) {
+    marker.showInfoWindow();
+  });
+  }  
   else {
-    alert('There is no stored data for this form yet. Try to change any field')
+    alert('Vous devez marquer votre voiture');
   }
-    map.setZoom(7);
 });
 
 //facebook sidebar button
@@ -129,3 +141,10 @@ $$('#notre_siteweb').on('click', function (e) {
 }).start();
 
     });
+
+//panel closed
+
+
+//les villes go
+
+
