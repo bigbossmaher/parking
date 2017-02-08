@@ -20,150 +20,64 @@
         <script type="text/javascript">
                     
 var map;
+var ParkingData = [];
 document.addEventListener("deviceready", function() {
- autocompleteComp();
+ showPreloader();
+autocompleteComp();
 initializeMap();
+check_parking_is_close();
   map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
 }, false);
-
 function onMapReady() {
     showMapParkingData();
 }
 function showMapParkingData() {
-    var ParkingData = [
-{'title':'Parking aeroport','position': new plugin.google.maps.LatLng(36.851205,10.226290),'icon': 'www/icons/parking.png'},
-{'title':'Parking Sidi Bou Said','position': new plugin.google.maps.LatLng(36.8736452,10.339614900000015),'icon': 'www/icons/parking.png'},
-{'title':'Lac biwa','position': new plugin.google.maps.LatLng(36.83304329999999,10.23759640000003),'icon': 'www/icons/parking.png'},
-{'title':'Rue Ali Belhouane, Sfax','position': new plugin.google.maps.LatLng(34.735296,10.763912),'icon': 'www/icons/parking.png'},
-{'title':'Rue de l armée','position': new plugin.google.maps.LatLng(34.735000,10.764833),'icon': 'www/icons/parking.png'},
-{'title':'Rue de l armée ,','position': new plugin.google.maps.LatLng(34.736972,10.763972),'icon': 'www/icons/parking.png'},
-{'title':'Rue Tazarka,','position': new plugin.google.maps.LatLng(34.734457,10.766483),'icon': 'www/icons/parking.png'},
-{'title':'Avenue Habib Borguiba, Place 2 Mars','position': new plugin.google.maps.LatLng(34.733750,10.765028),'icon': 'www/icons/parking.png'},
-{'title':'Corniche pres de magazin Nike','position': new plugin.google.maps.LatLng(34.729722,10.764278),'icon': 'www/icons/parking.png'},
-{'title':'Avenue Habib Borguiba','position': new plugin.google.maps.LatLng(34.729083,10.759083),'icon': 'www/icons/parking.png'},
-{'title':'a l entour du Foir Internationale de Sfax','position': new plugin.google.maps.LatLng(34.728291,10.758492),'icon': 'www/icons/parking.png'},
-{'title':'Salle de Sport de Sfax et Station de Louages','position': new plugin.google.maps.LatLng(34.728194,10.751861),'icon': 'www/icons/parking.png'},
-{'title':'Devant Terminus de Bus El Karia','position': new plugin.google.maps.LatLng(34.739250,10.761833),'icon': 'www/icons/parking.png'},
-{'title':'Deriére Terminus de Bus Teniour','position': new plugin.google.maps.LatLng(34.736694,10.757417),'icon': 'www/icons/parking.png'},
-{'title':'Carrefour Market Ennassiria','position': new plugin.google.maps.LatLng(34.740917,10.757750),'icon': 'www/icons/parking.png'},
-{'title':'a coté de Olfa Palace, Ennassiria','position': new plugin.google.maps.LatLng(34.741417,10.756167),'icon': 'www/icons/parking.png'},
-{'title':'devant Groupement de Medecine de Travail, Ennassiria','position': new plugin.google.maps.LatLng(34.741361,10.754139),'icon': 'www/icons/parking.png'},
-{'title':'Deriére la Poste et Telecom, Ennassiria','position': new plugin.google.maps.LatLng(34.740500,10.753944),'icon': 'www/icons/parking.png'},
-{'title':'18 sfax','position': new plugin.google.maps.LatLng(34.736000,10.755861),'icon': 'www/icons/parking.png'},
-{'title':'Rend point Al Arwika','position': new plugin.google.maps.LatLng(34.736694,10.755750),'icon': 'www/icons/parking.png'},
-{'title':'a coté Madame Masmoudi 7 novembre','position': new plugin.google.maps.LatLng(34.736639,10.753583),'icon': 'www/icons/parking.png'},
-{'title':'devant caffee Jasmin','position': new plugin.google.maps.LatLng(34.736833,10.751972),'icon': 'www/icons/parking.png'},
-{'title':'a coté Ci Gusta','position': new plugin.google.maps.LatLng(34.736333,10.751722),'icon': 'www/icons/parking.png'},
-{'title':'Dériere le Complex Culturelle Jamoussi','position': new plugin.google.maps.LatLng(34.736333,10.750194),'icon': 'www/icons/parking.png'},
-{'title':'Devant la picine municipale a gauche','position': new plugin.google.maps.LatLng(34.735697,10.743740),'icon': 'www/icons/parking.png'},
-{'title':'Devant la picine municipale a droite','position': new plugin.google.maps.LatLng(34.735715,10.742233),'icon': 'www/icons/parking.png'},
-{'title':'entre Stade Taib Mhiri et Zoo Touta','position': new plugin.google.maps.LatLng(34.733028,10.742667),'icon': 'www/icons/parking.png'},
-{'title':'Sfax-Thyna International Airport','position': new plugin.google.maps.LatLng(34.725000,10.688203),'icon': 'www/icons/parking.png'},
-{'title':'Monoprix Avenue Ibn Khaldoun','position': new plugin.google.maps.LatLng(35.807749,10.649365),'icon': 'www/icons/parking.png'},
-{'title':'Foire Internationale de Sousse','position': new plugin.google.maps.LatLng(35.791929,10.670887),'icon': 'www/icons/parking.png'},
-{'title':'Port de plaisance, sousse ville','position': new plugin.google.maps.LatLng(35.825378,10.641782),'icon': 'www/icons/parking.png'},
-{'title':'Devant le Port Commerciale','position': new plugin.google.maps.LatLng(35.828536,10.642951),'icon': 'www/icons/parking.png'},
-{'title':'Parking El Kantaoui','position': new plugin.google.maps.LatLng(35.893960,10.595111),'icon': 'www/icons/parking.png'},
-{'title':'Parking Magazin Genérale kantaoui','position': new plugin.google.maps.LatLng(35.893056,10.596119),'icon': 'www/icons/parking.png'},
-{'title':'Parking Promogro, Magazin Generale','position': new plugin.google.maps.LatLng(35.835880,10.587001),'icon': 'www/icons/parking.png'},
-{'title':'Stade Olympique de sousse, Salle Olympique de sousse','position': new plugin.google.maps.LatLng(35.823980,10.611044),'icon': 'www/icons/parking.png'},
-{'title':'Theathre Sidi Dhaher','position': new plugin.google.maps.LatLng(35.821305,10.635168),'icon': 'www/icons/parking.png'},
-{'title':'Entré de la Marina','position': new plugin.google.maps.LatLng(35.781500,10.833056),'icon': 'www/icons/parking.png'},
-{'title':'Administration cap Marina','position': new plugin.google.maps.LatLng(35.781500,10.833056),'icon': 'www/icons/parking.png'},
-{'title':'La Municipalité de la ville de Monastir','position': new plugin.google.maps.LatLng(35.772944,10.833361),'icon': 'www/icons/parking.png'},
-{'title':'a coté du Monoprix, a l entré du marché centrale','position': new plugin.google.maps.LatLng(35.772500,10.831306),'icon': 'www/icons/parking.png'},
-{'title':'Palais des science a coté du radio','position': new plugin.google.maps.LatLng(35.772361,10.832972),'icon': 'www/icons/parking.png'},
-{'title':'entre Marché Centrale et Immeuble Beb Darb','position': new plugin.google.maps.LatLng(35.771472,10.832278),'icon': 'www/icons/parking.png'},
-{'title':'entre rue chedli kallala et rue 20 mars, a coté du marché centrale','position': new plugin.google.maps.LatLng(35.771111,10.831472),'icon': 'www/icons/parking.png'},
-{'title':'Gare de Monastir','position': new plugin.google.maps.LatLng(35.770944,10.826778),'icon': 'www/icons/parking.png'},
-{'title':'Stade Mustapha be jannet','position': new plugin.google.maps.LatLng(35.776333,10.818278),'icon': 'www/icons/parking.png'},
-{'title':'Souani , entre La douane et Tunisie Telecome','position': new plugin.google.maps.LatLng(35.775750,10.814750),'icon': 'www/icons/parking.png'},
-{'title':'Le Complex Culturelle de Monastir; rond point Nafoura','position': new plugin.google.maps.LatLng(35.768139,10.821500),'icon': 'www/icons/parking.png'},
-{'title':'La Poste Borj Khefacha','position': new plugin.google.maps.LatLng(35.773528,10.819389),'icon': 'www/icons/parking.png'},
-{'title':'Adam Park','position': new plugin.google.maps.LatLng(35.773028,10.823472),'icon': 'www/icons/parking.png'},
-{'title':'Parking Aeroport Monastir Habib Bourguiba','position': new plugin.google.maps.LatLng(35.761694,10.751917),'icon': 'www/icons/parking.png'},
-{'title':'Foire Internationale De Monastir','position': new plugin.google.maps.LatLng(35.758447,10.825986),'icon': 'www/icons/parking.png'},
-{'title':'Deriére Ministére De L interieure','position': new plugin.google.maps.LatLng(36.798722,10.185766),'icon': 'www/icons/parking.png'},
-{'title':'Le Palmarium, Avenue Habib Bourguiba','position': new plugin.google.maps.LatLng(36.798094,10.180790),'icon': 'www/icons/parking.png'},
-{'title':'Devant Centrale Park','position': new plugin.google.maps.LatLng(36.801410,10.183031),'icon': 'www/icons/parking.png'},
-{'title':'Centrale Park','position': new plugin.google.maps.LatLng(36.801649,10.182954),'icon': 'www/icons/parking.png'},
-{'title':'Devant Assurance Comar et Ministére de Tourisme','position': new plugin.google.maps.LatLng(36.800655,10.187817),'icon': 'www/icons/parking.png'},
-{'title':'Devant la Banque Centrale el la Banque de l Habitat','position': new plugin.google.maps.LatLng(36.804221,10.185939),'icon': 'www/icons/parking.png'},
-{'title':'Carrefour Market et Marché Centrale Lafayette','position': new plugin.google.maps.LatLng(36.812490,10.181532),'icon': 'www/icons/parking.png'},
-{'title':'Beb El Khadhra','position': new plugin.google.maps.LatLng(36.810949,10.175245),'icon': 'www/icons/parking.png'},
-{'title':'Parking El Kasba, Hotel De ville de Tunis','position': new plugin.google.maps.LatLng(36.796239,10.164071),'icon': 'www/icons/parking.png'},
-{'title':'Tunis 11','position': new plugin.google.maps.LatLng(36.804611,10.171722),'icon': 'www/icons/parking.png'},
-{'title':'Mohamad 5 , Parking Citroen','position': new plugin.google.maps.LatLng(36.818550,10.183876),'icon': 'www/icons/parking.png'},
-{'title':'Avenue du Ghana,Lafayette Tunis','position': new plugin.google.maps.LatLng(36.806356,10.182419),'icon': 'www/icons/parking.png'},
-{'title':'Avenue du Ghana,Lafayette Tunis','position': new plugin.google.maps.LatLng(36.806462,10.183269),'icon': 'www/icons/parking.png'},
-{'title':'a coté de l Hotel De ville de Tunis','position': new plugin.google.maps.LatLng(36.798212,10.164756),'icon': 'www/icons/parking.png'},
-{'title':'Devant l ETAP','position': new plugin.google.maps.LatLng(36.815861,10.184111),'icon': 'www/icons/parking.png'},
-{'title':'Tunis 17','position': new plugin.google.maps.LatLng(36.809917,10.181975),'icon': 'www/icons/parking.png'},
-{'title':'Deriére Taraji Store','position': new plugin.google.maps.LatLng(36.815714,10.186862),'icon': 'www/icons/parking.png'},
-{'title':'Tunis 19','position': new plugin.google.maps.LatLng(36.816582,10.187227),'icon': 'www/icons/parking.png'},
-{'title':'a coté de Société Des transport de Tunis','position': new plugin.google.maps.LatLng(36.817643,10.188364),'icon': 'www/icons/parking.png'},
-{'title':'Tunis 21','position': new plugin.google.maps.LatLng(36.822431,10.192072),'icon': 'www/icons/parking.png'},
-{'title':'Devant Ambassade du Lybie','position': new plugin.google.maps.LatLng(36.818810,10.182833),'icon': 'www/icons/parking.png'},
-{'title':'Parking de Paris','position': new plugin.google.maps.LatLng(36.800873,10.181300),'icon': 'www/icons/parking.png'},
-{'title':'entre Citroen et carthage land','position': new plugin.google.maps.LatLng(36.831694,10.219722),'icon': 'www/icons/parking.png'},
-{'title':'devant Carthage land a gauche','position': new plugin.google.maps.LatLng(36.833180,10.221369),'icon': 'www/icons/parking.png'},
-{'title':'devant Carthage land a droite','position': new plugin.google.maps.LatLng(36.834278,10.224083),'icon': 'www/icons/parking.png'},
-{'title':'a coté du Residence la croisette','position': new plugin.google.maps.LatLng(36.830607,10.226688),'icon': 'www/icons/parking.png'},
-{'title':'Parking Biwa 1, Devant Restaurant Aquatic','position': new plugin.google.maps.LatLng(36.832167,10.234250),'icon': 'www/icons/parking.png'},
-{'title':'Parking Biwa 1, Devant Restaurant Biwa','position': new plugin.google.maps.LatLng(36.832389,10.234944),'icon': 'www/icons/parking.png'},
-{'title':'devant california gym','position': new plugin.google.maps.LatLng(36.833639,10.240000),'icon': 'www/icons/parking.png'},
-{'title':'deriere Lac Club et devant Aqua Lounge','position': new plugin.google.maps.LatLng(36.835278,10.244889),'icon': 'www/icons/parking.png'},
-{'title':'a coté du BIAT','position': new plugin.google.maps.LatLng(36.834417,10.237556),'icon': 'www/icons/parking.png'},
-{'title':'a coté de FIAT','position': new plugin.google.maps.LatLng(36.835412,10.242215),'icon': 'www/icons/parking.png'},
-{'title':'a coté du Lac Club','position': new plugin.google.maps.LatLng(36.836722,10.245278),'icon': 'www/icons/parking.png'},
-{'title':'entre Monoprix et Lac Palace','position': new plugin.google.maps.LatLng(36.837857,10.238623),'icon': 'www/icons/parking.png'},
-{'title':'Lac 14','position': new plugin.google.maps.LatLng(36.839806,10.241417),'icon': 'www/icons/parking.png'},
-{'title':'Devant Peugeot','position': new plugin.google.maps.LatLng(36.840111,10.242444),'icon': 'www/icons/parking.png'},
-{'title':'devant TLS contact','position': new plugin.google.maps.LatLng(36.840500,10.243750),'icon': 'www/icons/parking.png'},
-{'title':'devant Clinique Alyssa','position': new plugin.google.maps.LatLng(36.840778,10.244694),'icon': 'www/icons/parking.png'},
-{'title':'devant Telnet holding','position': new plugin.google.maps.LatLng(36.841139,10.245917),'icon': 'www/icons/parking.png'},
-{'title':'devant Tijeri Bank','position': new plugin.google.maps.LatLng(36.836000,10.228250),'icon': 'www/icons/parking.png'},
-{'title':'devant Samsung','position': new plugin.google.maps.LatLng(36.837139,10.232250),'icon': 'www/icons/parking.png'},
-{'title':'devant Emirates','position': new plugin.google.maps.LatLng(36.837556,10.233694),'icon': 'www/icons/parking.png'},
-{'title':'Complex Commerciale et Monoprix Menzah 6','position': new plugin.google.maps.LatLng(36.846564,10.167098),'icon': 'www/icons/parking.png'},
-{'title':'Monoprix El Menzah 4','position': new plugin.google.maps.LatLng(36.836518,10.178414),'icon': 'www/icons/parking.png'},
-{'title':'Cité Olympique El Menzah','position': new plugin.google.maps.LatLng(36.839981,10.182306),'icon': 'www/icons/parking.png'},
-{'title':'MG Ennasr, Rend point Mosqué Essalem','position': new plugin.google.maps.LatLng(36.859703,10.163635),'icon': 'www/icons/parking.png'},
-{'title':'El Menzah Palace, MG proxy El Menzah 6','position': new plugin.google.maps.LatLng(36.852330,10.164847),'icon': 'www/icons/parking.png'},
-{'title':'Complex Commercial Ariana Center','position': new plugin.google.maps.LatLng(36.857419,10.189563),'icon': 'www/icons/parking.png'},
-{'title':'02Goulette','position': new plugin.google.maps.LatLng(36.821439,10.310157),'icon': 'www/icons/parking.png'},
-{'title':'Le Kram - Exhibition and International Trade Center of Tunis','position': new plugin.google.maps.LatLng(36.839091,10.298226),'icon': 'www/icons/parking.png'},
-{'title':'Devant Mosquée Malek Ibn Anas','position': new plugin.google.maps.LatLng(36.858571,10.326818),'icon': 'www/icons/parking.png'},
-{'title':'a coté d Hotel Amilcar','position': new plugin.google.maps.LatLng(36.865077,10.344215),'icon': 'www/icons/parking.png'},
-{'title':'Le rendpoint de l ecole Nationale d architecture et d urbanisme','position': new plugin.google.maps.LatLng(36.873106,10.339467),'icon': 'www/icons/parking.png'},
-{'title':'Mosquée El Ahmadi','position': new plugin.google.maps.LatLng(36.882049,10.331372),'icon': 'www/icons/parking.png'},
-{'title':'Devant Baguette & Baguette','position': new plugin.google.maps.LatLng(36.883594,10.334010),'icon': 'www/icons/parking.png'},
-{'title':'Centre Commercial Le Zéphyr','position': new plugin.google.maps.LatLng(36.883594,10.334010),'icon': 'www/icons/parking.png'},
-{'title':'Marsa La Plage','position': new plugin.google.maps.LatLng(36.886880,10.330457),'icon': 'www/icons/parking.png'},
-{'title':'Marché Municipal','position': new plugin.google.maps.LatLng(36.884125,10.331230),'icon': 'www/icons/parking.png'},
-{'title':'Stade de la Marsa, Gym Raja Haider','position': new plugin.google.maps.LatLng(36.874024,10.319739),'icon': 'www/icons/parking.png'},
-{'title':'Carrefour Tunis Route la Marsa','position': new plugin.google.maps.LatLng(36.865327,10.295096),'icon': 'www/icons/parking.png'},
-{'title':'Parking.tn','position': new plugin.google.maps.LatLng(36.8331431,10.23625549999997),'icon': 'www/icons/parking.png'},
-];
-addMarkers(ParkingData, function(markers) {
-  markers[markers.length - 1].hideInfoWindow();
-});
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    
+     ParkingData = JSON.parse(this.responseText);
+     console.log(ParkingData);
+     for(var i = 0; i < ParkingData.length; i++ ){
+      ParkingData[i].position = new plugin.google.maps.LatLng(ParkingData[i].position.lat,ParkingData[i].position.long);
 
-function addMarkers(ParkingData, callback) {
+     }
+     addMarkers(ParkingData, function(markers) {
+      console.log("added");
+      //markers[markers.length - 1].hideInfoWindow();
+    });
+    }
+  };
+  xhttp.open("GET", "http://autopost.besthost.tn/app/parking.php", true);
+  xhttp.send();
+function addMarkers(data, callback) {
   var markers = [];
   function onMarkerAdded(marker) {
+      marker.on(plugin.google.maps.event.MARKER_CLICK, function() {
+            show_parking_data();
+            //alert(marker.get("mtitle"));
+              myApp.pickerModal(
+    '<div class="picker-modal">' +
+      '<div class="toolbar">' +
+        '<div class="toolbar-inner">' +
+          '<div class="left"></div>' +
+          '<div class="right"><a href="#" class="close-picker">Fermer</a></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="picker-modal-inner">' +
+        '<div class="content-block">' +
+          '<p>'+marker.get("mtitle")+'</p>'+
+        '</div>' +
+      '</div>' +
+    '</div>'
+  );
+   });
     markers.push(marker);
-    if (markers.length === ParkingData.length) {
+    if (markers.length === data.length) {
       callback(markers);
     }
   }
-  ParkingData.forEach(function(markerOptions) {
-      markerOptions.styles = {
-    'text-align': 'center',
-    'font-style': 'italic',
-    'font-weight': 'bold',
-    'color': 'red'
-  };
+  data.forEach(function(markerOptions) {
     map.addMarker(markerOptions, onMarkerAdded);
   });
 }
@@ -214,26 +128,27 @@ function initializeMap() {
         </script>
 
     </head>
-    <body style="font-family:Arial;font-size:18pt;border:0;margin:0;padding:0;">
+    <body style="font-family:Arial;font-size:18pt;border:0;margin:0;padding:0;" >
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar-overlay"></div>
     <!-- Panels overlay-->
     <div class="panel-overlay"></div>
     <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-cover">
+    <div class="panel panel-right panel-cover">
         <div class="content-block">
             <p><i class="fa fa-info-circle" aria-hidden="true" ></i><!--<a class="close-panel" href="villes.html">-->  Qui sommes nous</p>
             <p id="notre_siteweb"><a href="#"  class="fa fa-chrome" aria-hidden="true">  Notre siteweb</a></p>
             <p ><a id="facook_page" href="#"  class="fa fa-facebook-square" aria-hidden="true">  Page Facebook</a></p>
-            <p><i class="fa fa-phone-square" aria-hidden="true"></i>  Contact</p>
+            <p><a class="close-panel fa fa-phone-square" href="contact.html" aria-hidden="true">  Contact</a></p>
         </div>
     </div>
     <!-- Right panel with cover effect-->
-    <div class="panel panel-right panel-cover">
+    <div class="panel panel-left panel-cover">
         <div class="content-block">
-            <p id="les-villes"><i class="fa fa-globe" ></i><a class="close-panel" href="villes.html">  Liste de villes</a></p>
-            <p><a href="#" class="fa fa-thumb-tack save-storage-data" aria-hidden="true">  Marquer ma voiture</a></p>
-            <p><a href="#" class="fa fa-location-arrow get-storage-data" aria-hidden="true">  Trouver ma voiture</a></p>
+            <p id="les-villes"><a href="#" class="close-panel" ><i class="fa fa-globe" ></i>  Les parking par villes</a></p>
+            <p><a href="#" class="fa fa-thumb-tack save-car-place close-panel" aria-hidden="true">  Marquer ma voiture</a></p>
+            <p><a href="#" class="fa fa-location-arrow get-car-place close-panel" aria-hidden="true">  Trouver ma voiture</a></p>
+            <p><a href="#" class="fa fa-battery-half etat-actuelle-parking close-panel" aria-hidden="true">  etats actulles des parkings</a></p>
             <p><i class="fa fa-star" aria-hidden="true"></i>  Evaluer nous</p>
             <p><i class="fa fa-cogs" aria-hidden="true"></i>  Parametres</p>
         </div>
@@ -269,13 +184,22 @@ function initializeMap() {
       <div class="item-content">
         <div class="item-inner">
           <div class="item-input">
-            <input id="myplace" type="text" placeholder="garer prer de">
+            <input id="myplace" type="text" placeholder="Je veux garer prés de ...">
           </div>
         </div>
       </div>
     </li>
   </ul>
-</div>       
+</div> 
+<!--<div class="list-block">
+  <ul>
+    <li class="item-content">
+      <div class="item-title label">Language</div>
+      <div class="item-input">
+        <input type="text" placeholder="Language" id="autocomplete-dropdown-ajax"></div>
+    </li>
+  </ul>
+</div>-->
                     
                             <div style="  width: 100%;height:93% ;margin: 0;padding: 0;left: 0;top: 0;" id="map_canvas"></div>
 
@@ -295,3 +219,6 @@ function initializeMap() {
 </body>
 
 </html>
+
+
+

@@ -34,7 +34,7 @@
     "cordova-plugin-compat": {
         "source": {
             "type": "local",
-            "path": "C:\\Users\\Sammoudi\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-compat"
+            "path": "C:\\Users\\Sammoudi Maher\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-compat"
         },
         "is_top_level": false,
         "variables": {}
@@ -47,12 +47,55 @@
             "ref": "multiple_maps"
         },
         "is_top_level": true,
-        "variables": {}
+        "variables": {
+            "API_KEY_FOR_ANDROID": "AIzaSyAUKl6LZ6sCoxUwK0pqd_5kZ_GDwTRaSM8"
+        }
     },
     "com.lampa.startapp": {
         "source": {
             "type": "registry",
             "id": "com.lampa.startapp@0.1.4"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-mauron85-background-geolocation": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-mauron85-background-geolocation"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-dialogs": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Sammoudi Maher\\AppData\\Local\\Intel\\XDK\\xdk\\components\\server\\cordova\\cordova-plugins\\cordova-plugin-dialogs"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-background-fetch": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-background-fetch"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-cocoalumberjack": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-cocoalumberjack"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-background-location-android": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jumpbytehq/cordova-background-location-android",
+            "subdir": "."
         },
         "is_top_level": true,
         "variables": {}

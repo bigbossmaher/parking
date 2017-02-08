@@ -24,10 +24,19 @@
         },
         "com.lampa.startapp": {
             "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-mauron85-background-geolocation": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-background-location-android": {
+            "PACKAGE_NAME": "HelloCordova"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "HelloCordova"
+        },
+        "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "HelloCordova"
         }
     }

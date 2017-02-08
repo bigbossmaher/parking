@@ -6,7 +6,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-ad-project/sample.zip",
       "projectGuid": "6d379d7b-8666-46b9-a3ac-511347b05b1d",
-      "lastModifiedDate": 1484682636813,
+      "lastModifiedDate": 1486439639156,
       "creationDate": 1482244521270
     },
     "XDK-app-designer": "true",
@@ -59,7 +59,8 @@
         "gitref": "",
         "name": "Device",
         "description": "Cordova Device Plugin",
-        "checksum": "2373ccea"
+        "checksum": "2373ccea",
+        "cordovaVersion": ">=3.0.0"
       },
       {
         "id": "cordova-plugin-splashscreen",
@@ -76,7 +77,51 @@
         "gitref": "",
         "name": "Splashscreen",
         "description": "Cordova Splashscreen Plugin",
-        "checksum": "47137083"
+        "checksum": "47137083",
+        "cordovaVersion": ">=3.0.0"
+      },
+      {
+        "id": "cordova-plugin-geolocation",
+        "name": "Geolocation",
+        "version": "2.2.0",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-geolocation",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-geolocation",
+        "selectedState": "Included",
+        "checksum": "ec466374",
+        "dependsOn": [],
+        "topLevel": false,
+        "permissions": {
+          "android:name": [
+            "android.permission.ACCESS_COARSE_LOCATION",
+            "android.permission.ACCESS_FINE_LOCATION"
+          ]
+        },
+        "description": "Cordova Geolocation Plugin",
+        "data": {},
+        "dependedBy": [],
+        "cordovaVersion": ">=3.0.0"
+      },
+      {
+        "id": "com.lampa.startapp",
+        "name": "startApp",
+        "version": "0.1.4",
+        "originType": "cordova.io",
+        "origin": "com.lampa.startapp",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/com.lampa.startapp",
+        "selectedState": "Included",
+        "checksum": "3159af5e",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {},
+        "description": "Phonegap plugin for check or launch other application in android device.",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
       },
       {
         "id": "cordova-plugin-compat",
@@ -94,35 +139,41 @@
         "permissions": {},
         "description": "Cordova Compatibility Plugin",
         "data": {},
-        "dependedBy": [
-          "cordova-plugin-geolocation"
-        ],
-        "custom": "true"
+        "dependedBy": [],
+        "custom": "true",
+        "cordovaVersion": ">=3.0.0"
       },
       {
-        "id": "cordova-plugin-geolocation",
-        "name": "Geolocation",
-        "version": "2.2.0",
-        "originType": "cordova.io",
-        "origin": "cordova-plugin-geolocation",
+        "id": "cordova-background-location-android",
+        "name": "CDVBackgroundGeoLocation",
+        "version": "1.0.0",
+        "originType": "repo",
+        "origin": "https://github.com/jumpbytehq/cordova-background-location-android",
         "gitref": "",
+        "subdir": ".",
         "paramvals": {},
-        "sourceLocation": "plugins/cordova-plugin-geolocation",
+        "sourceLocation": "plugins/cordova-background-location-android",
         "selectedState": "Included",
-        "checksum": "ec466374",
-        "dependsOn": [
-          "cordova-plugin-compat"
-        ],
+        "checksum": "e3ef7477",
+        "dependsOn": [],
         "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
         "permissions": {
           "android:name": [
+            "android.permission.RECEIVE_BOOT_COMPLETED",
+            "com.google.android.gms.permission.ACTIVITY_RECOGNITION",
+            "android.permission.ACCESS_NETWORK_STATE",
             "android.permission.ACCESS_COARSE_LOCATION",
-            "android.permission.ACCESS_FINE_LOCATION"
+            "android.permission.ACCESS_FINE_LOCATION",
+            "android.permission.ACCESS_LOCATION_EXTRA_COMMANDS",
+            "android.permission.INTERNET",
+            "android.permission.WAKE_LOCK"
           ]
         },
-        "description": "Cordova Geolocation Plugin",
+        "description": "Cordova Background GeoLocation Plugin",
         "data": {},
-        "dependedBy": []
+        "dependedBy": [],
+        "custom": "true"
       },
       {
         "id": "cordova-plugin-googlemaps",
@@ -131,14 +182,17 @@
         "originType": "repo",
         "origin": "https://github.com/mapsplugin/cordova-plugin-googlemaps",
         "gitref": "multiple_maps",
+        "subdir": ".",
         "paramvals": {
           "API_KEY_FOR_ANDROID": "AIzaSyAUKl6LZ6sCoxUwK0pqd_5kZ_GDwTRaSM8"
         },
         "sourceLocation": "plugins/cordova-plugin-googlemaps",
         "selectedState": "Included",
-        "checksum": "288e0ecb",
+        "checksum": "cb14808b",
         "dependsOn": [],
         "topLevel": true,
+        "cordovaVersion": ">=3.0.0",
+        "author": "Masashi Katsumata",
         "permissions": {
           "android:name": [
             "android.permission.INTERNET",
@@ -149,27 +203,6 @@
           ]
         },
         "description": "Google Maps native SDK for Android and iOS",
-        "data": {},
-        "dependedBy": [],
-        "custom": "true",
-        "subdir": ".",
-        "author": "Masashi Katsumata"
-      },
-      {
-        "id": "com.lampa.startapp",
-        "name": "startApp",
-        "version": "0.1.4",
-        "originType": "cordova.io",
-        "origin": "com.lampa.startapp",
-        "gitref": "",
-        "paramvals": {},
-        "sourceLocation": "plugins/com.lampa.startapp",
-        "selectedState": "Included",
-        "checksum": "3159af5e",
-        "dependsOn": [],
-        "topLevel": true,
-        "permissions": {},
-        "description": "Phonegap plugin for check or launch other application in android device.",
         "data": {},
         "dependedBy": [],
         "custom": "true"
@@ -209,25 +242,25 @@
         "icons_": [
           {
             "density": "ldpi",
-            "relPath": "package-assets/iconldpi.png",
+            "relPath": "package-assets/36x36  logo.png",
             "width": 36,
             "height": 36
           },
           {
             "density": "mdpi",
-            "relPath": "package-assets/iconmdpi.png",
+            "relPath": "package-assets/48x48  logo.png",
             "width": 48,
             "height": 48
           },
           {
             "density": "hdpi",
-            "relPath": "package-assets/iconhdpi.png",
+            "relPath": "package-assets/72x72  logo.png",
             "width": 72,
             "height": 72
           },
           {
             "density": "xhdpi",
-            "relPath": "package-assets/iconxhdpi.png",
+            "relPath": "package-assets/96x96  logo.png",
             "width": 96,
             "height": 96
           }
